@@ -1,0 +1,54 @@
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+	
+		
+		int my=0,x,y, result;
+		Game game = new Game();
+		
+		game.display("Board :");
+		
+		
+		System.out.print("\n Choose [1/2] to play : ");
+		int player = sc.nextInt();
+		
+		if(player==1) my=2;
+		else my=1;
+	
+		
+		for(int k=1; k<=5; k++) {
+			
+			
+			do {
+				System.out.print("\n Enter [X,Y] to Make Your Move : ");
+			    x = sc.nextInt();  y = sc.nextInt();
+					
+			}while(game.ar[x][y] != 0);
+			
+			game.ar[x][y] = player;	
+			
+			game.display("\n Player has Played : ");
+			
+			result = game.gameResult();
+			
+			if(result == my) {System.out.println("\n\t [Lose!] COMPUTER Win.\n"); break;}
+			else if(result == player) {System.out.println("\n\t [Win!] You Win.\n"); break;}
+			else if(result==-3) {System.out.println("\n\t [Tie!] No Result.\n"); break;}
+			
+			game.computerMove(my,x,y,player);
+			game.display("\n Computer has Played : ");
+			
+			result = game.gameResult();
+			
+			if(result == my) {System.out.println("\n\t [Lose!] COMPUTER Win.\n"); break;}
+			else if(result == player) {System.out.println("\n\t [Win!] You Win.\n"); break;}
+			else if(result==-3) {System.out.println("\n\t [Tie!] No Result.\n"); break;}
+			
+		}
+		
+	}
+
+}
