@@ -1,2 +1,3 @@
 # Tic-Tac-Toe-Game-with-Java
-I have made tic tac toe game with java.
+
+Download these two class and pase on to your eclips/netbins/IntelIJ.
